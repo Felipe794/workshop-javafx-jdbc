@@ -50,7 +50,7 @@ public class DepartmentFormController implements Initializable {
 		this.entity = entity;
 	}
 	
-	public void setDepartmentServcie(DepartmentService service) {
+	public void setDepartmentService(DepartmentService service) {
 		this.service = service;
 	}
 	
@@ -67,10 +67,10 @@ public class DepartmentFormController implements Initializable {
 			throw new IllegalStateException("Service was null");
 		}
 		try {
-		entity = getFormData();
-		service.saveOrUpdate(entity);
-		notifyDataChangeListeners();
-		Utils.currentStage(event).close();
+			entity = getFormData();
+			service.saveOrUpdate(entity);
+			notifyDataChangeListeners();
+			Utils.currentStage(event).close();
 		}
 		catch (ValidationException e) {
 			setErrorMessages(e.getErrors());
